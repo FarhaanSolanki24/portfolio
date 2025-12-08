@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Farhaan Sadiq Solanki | Front-End Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+            /* Soft, professional background */
+            color: #333d47;
+            /* Dark charcoal text */
+            scroll-behavior: smooth;
+        }
+
+        /* Gradient Accent Text for Hero (A more vibrant, modern gradient) */
+        .gradient-text {
+            background-image: linear-gradient(to right, #1d4ed8, #4f46e5, #9333ea);
+            /* Blue to Indigo to Violet */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* --- Navigation & Headings --- */
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+            /* Space for the underline */
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #4f46e5;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-heading {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Refined Underline Accent */
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            /* Distinct accent length */
+            height: 4px;
+            /* Thicker accent */
+            background-color: #1d4ed8;
+            /* Darker Blue accent */
+            border-radius: 2px;
+        }
+
+        /* --- Enhanced Animations for Professionalism --- */
+
+        /* Animation for section entry: Subtle Fade-in + Slide-up */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-section {
+            opacity: 0;
+            animation: fadeInSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Staggered delay for sections */
+        #skills {
+            animation-delay: 0.2s;
+        }
+
+        #experience {
+            animation-delay: 0.4s;
+        }
+
+        #projects {
+            animation-delay: 0.6s;
+        }
+
+        #contact {
+            animation-delay: 0.8s;
+        }
+
+        /* General Box Shadow Hover Effect */
+        .box-hover-effect {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .box-hover-effect:hover {
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04);
+            /* More pronounced lift */
+            transform: translateY(-5px);
+        }
+
+        /* Custom Skill Badge Style */
+        .skill-badge {
+            background-color: #e0e7ff;
+            /* Light indigo */
+            color: #3730a3;
+            /* Dark indigo */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            /* Pill shape */
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: background-color 0.3s;
+        }
+
+        .skill-badge:hover {
+            background-color: #c7d2fe;
+            transform: scale(1.03);
+        }
+
+        /* Project Card Enhancement */
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            border-top: 5px solid #1d4ed8;
+            /* Strong top border accent */
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero"
+                    class="text-xl font-extrabold text-gray-900 transition duration-300 hover:text-indigo-600 tracking-wider">
+                    Farhaan Solanki
+                </a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#skills"
+                        class="nav-link text-sm font-medium text-gray-700 transition duration-150 hover:text-indigo-600">Skills</a>
+                    <a href="#experience"
+                        class="nav-link text-sm font-medium text-gray-700 transition duration-150 hover:text-indigo-600">Experience</a>
+                    <a href="#projects"
+                        class="nav-link text-sm font-medium text-gray-700 transition duration-150 hover:text-indigo-600">Projects</a>
+                    <a href="#contact"
+                        class="nav-link text-sm font-medium text-gray-700 transition duration-150 hover:text-indigo-600">Contact</a>
+                </div>
+
+                <button id="mobile-menu-button"
+                    class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner pb-2">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-start">
+                <a href="#skills"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full text-left">Skills</a>
+                <a href="#experience"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full text-left">Experience</a>
+                <a href="#projects"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full text-left">Projects</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full text-left">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+
+        <section id="hero" class="py-12 sm:py-24">
+            <div class="grid md:grid-cols-5 gap-8 items-center">
+
+                <div class="md:col-span-3 space-y-6 text-content">
+                    <p class="text-xl font-semibold text-indigo-600 animate-pulse">Front-End Developer</p>
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
+                        Building <span class="gradient-text">Scalable</span> & Intuitive Interfaces
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-700 font-medium pt-2">
+                        Hello, I'm Mohd Farhaan Sadiq Solanki, a results-driven developer focused on delivering robust,
+                        high-performance web applications using React and Vue.js.
+                    </p>
+
+                    <blockquote
+                        class="text-gray-600 max-w-lg font-medium border-l-4 border-indigo-500 pl-4 py-1 italic">
+                        "My expertise lies in translating complex business logic into intuitive interfaces, notably
+                        building scalable features like Role-Based Access Control and Automated Payroll Systems for key
+                        clients."
+                    </blockquote>
+
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-6">
+                        <a href="#contact"
+                            class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.02] hover:shadow-2xl text-center">
+                            Get in Touch
+                        </a>
+                        <a href="https://github.com/FarhaanSolanki24" target="_blank"
+                            class="px-8 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300 flex items-center justify-center transform hover:scale-[1.02]">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 0C4.477 0 0 4.484 0 10.017c0 4.417 2.865 8.163 6.837 9.48.499.092.682-.217.682-.483 0-.237-.008-.867-.013-1.795-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.107-1.464-1.107-1.464-.905-.62.068-.608.068-.608 1.002.07 1.531 1.029 1.531 1.029.89 1.53 2.341 1.085 2.91.829.091-.643.349-1.085.635-1.334-2.227-.253-4.566-1.114-4.566-4.943 0-1.091.39-1.984 1.029-2.682-.103-.254-.446-1.275.097-2.646 0 0 .84-.268 2.75 1.023A9.742 9.742 0 0110 5.48c.843.003 1.696.111 2.508.311 1.909-1.291 2.748-1.023 2.748-1.023.543 1.371.2 2.392.097 2.646.64.698 1.029 1.591 1.029 2.682 0 3.837-2.342 4.686-4.571 4.935.359.309.678.917.678 1.854 0 1.335-.012 2.415-.012 2.741 0 .269.18.577.687.485C17.135 18.17 20 14.423 20 10.017 20 4.484 15.523 0 10 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            View GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="md:col-span-2 flex justify-center md:justify-end avatar-box order-first md:order-last mb-8 md:mb-0">
+                    <div class="relative w-56 h-56">
+                        <div class="absolute inset-0 bg-indigo-100 rounded-full blur-xl opacity-50 z-0"></div>
+                        <div
+                            class="relative w-full h-full bg-white rounded-full flex items-center justify-center border-4 border-indigo-600 shadow-2xl overflow-hidden z-10 p-4">
+                            <svg class="w-32 h-32 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm-2 9a7 7 0 00-7 7v1h14v-1a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <span
+                            class="absolute bottom-2 right-4 bg-green-500 w-5 h-5 rounded-full border-2 border-white z-20"
+                            title="Available for work"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-300 my-10" />
+
+        <section id="skills" class="py-12 animated-section">
+            <h2 class="text-3xl font-bold text-gray-800 section-heading">Core Skills & Technologies 💡</h2>
+
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Front-End Expertise</h3>
+            <div class="flex flex-wrap gap-4 mb-8">
+                <span class="skill-badge">React.js</span>
+                <span class="skill-badge">Vue.js</span>
+                <span class="skill-badge">JavaScript (ES6+)</span>
+                <span class="skill-badge">Redux / Vuex (State Management)</span>
+                <span class="skill-badge">HTML5 / CSS3</span>
+                <span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">Bootstrap</span>
+            </div>
+
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Back-End & Tools</h3>
+            <div class="flex flex-wrap gap-4">
+                <span class="skill-badge bg-green-100 text-green-700 hover:bg-green-200">Strapi (CMS)</span>
+                <span class="skill-badge bg-green-100 text-green-700 hover:bg-green-200">ERP Next</span>
+                <span class="skill-badge bg-yellow-100 text-yellow-700 hover:bg-yellow-200">PHP & Python
+                    (Basic/Scripting)</span>
+                <span class="skill-badge bg-red-100 text-red-700 hover:bg-red-200">Git / GitHub</span>
+                <span class="skill-badge bg-red-100 text-red-700 hover:bg-red-200">RESTful APIs</span>
+                <span class="skill-badge bg-gray-200 text-gray-700 hover:bg-gray-300">C / C++ (Foundations)</span>
+            </div>
+        </section>
+
+        <hr class="border-gray-300 my-10" />
+
+        <section id="experience" class="py-12 animated-section">
+            <h2 class="text-3xl font-bold text-gray-800 section-heading">Professional Experience 💼</h2>
+
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-indigo-600 box-hover-effect">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                    <h4 class="text-2xl font-bold text-gray-900">Front-End Developer</h4>
+                    <span class="text-sm text-indigo-600 font-bold bg-indigo-50 px-3 py-1 rounded-full mt-1 sm:mt-0">May
+                        2025 - Present</span>
+                </div>
+                <p class="text-lg text-indigo-700 mb-4 font-semibold">DigitalSalt Technologies, Mumbai, India</p>
+                <ul class="list-disc list-outside text-gray-600 space-y-3 ml-6 text-base">
+                    <li class="pl-2">Successfully led the development of Role-Based Access Control (RBAC) features
+                        across multiple clients, ensuring secure and segmented data access using React/Vue components.
+                    </li>
+                    <li class="pl-2">Spearheaded the implementation of a full-fledged Payroll Automation System, from
+                        front-end logic (late entry/absence calculation) to API integration, dramatically reducing
+                        manual HR overhead.</li>
+                    <li class="pl-2">Developed and maintained high-quality, responsive user interfaces leveraging
+                        React/Vue.js and modern styling (Tailwind CSS), resulting in a 20% improvement in user
+                        interaction metrics.</li>
+                    <li class="pl-2">Collaborated closely with back-end engineers and UI/UX designers, translating
+                        complex design specifications into clean, efficient, and scalable front-end code.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr class="border-gray-300 my-10" />
+
+        <section id="projects" class="py-12 animated-section">
+            <h2 class="text-3xl font-bold text-gray-800 section-heading">Featured Projects 🚀</h2>
+
+            <div class="space-y-12">
+                <div class="project-card box-hover-effect grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <span
+                            class="text-xs font-semibold text-indigo-500 uppercase tracking-wider mb-2 block">Enterprise
+                            Web App</span>
+                        <h4 class="text-2xl font-bold text-indigo-800 mb-1">Attendance Management System (RBAC &
+                            Payroll)</h4>
+                        <p class="text-sm font-medium text-gray-500 mb-4">Tech Stack: React, Strapi (CMS), Tailwind CSS,
+                            Complex Logic Implementation</p>
+
+                        <p class="text-gray-700 mb-4 text-base">A robust full-stack application for client use,
+                            implementing complex role management for Admin, HR, Manager, and Employee roles, showcasing
+                            expertise in critical business application development.</p>
+
+                        <ul class="list-disc list-outside text-gray-600 space-y-2 ml-4 text-sm">
+                            <li class="pl-2">Engineered Payroll Automation logic, including custom calculations for late
+                                entries and absences, generating detailed salary breakdowns. (Critical Business Impact)
+                            </li>
+                            <li class="pl-2">Designed secure, role-based dashboards that limit feature access and
+                                provide real-time status updates (leave requests, attendance).</li>
+                            <li class="pl-2">Integrated with Strapi CMS for efficient content and data management,
+                                demonstrating full-stack integration capability.</li>
+                        </ul>
+                    </div>
+
+                    <div class="lg:col-span-1 border-l border-gray-100 lg:pl-6 pt-4 lg:pt-0">
+                        <h5 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Key Application Screens 🖼️</h5>
+
+                        <div class="mb-6">
+                            <h6 class="text-base font-semibold text-indigo-700 mb-3 uppercase tracking-wider">Admin/HR
+                                Dashboards (7 Screens)</h6>
+                            <div class="grid grid-cols-3 gap-3">
+                                <img src="./dash.png" alt="Admin Dashboard Snapshot"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Admin Dashboard">
+                                <img src="./emp.png" alt="Employee List View"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Employee List Management">
+                                <img src="./att.png" alt="Detailed Attendance View"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Daily Attendance Records">
+                                <img src="./leave.png" alt="Leave Request Management"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Leave Request Approvals">
+                                <img src="./just.png" alt="Attendance Justification Tracking"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Late/Absence Justification">
+                                <img src="./pay.png" alt="Payroll Automation Detail"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Payroll Run Details">
+                                <img src="./payy.png" alt="Payroll Automation Summary"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Payroll Automation Summary">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h6 class="text-base font-semibold text-indigo-700 mb-3 uppercase tracking-wider">Employee
+                                Portal (4 Screens)</h6>
+                            <div class="grid grid-cols-2 gap-3">
+                                <img src="./emppp.png" alt="Employee Personal Dashboard"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Employee Profile & Stats">
+                                <img src="./myatt.png" alt="Employee's Own Attendance Log"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="My Attendance Log">
+                                <img src="./myjustr.png" alt="Justification Submission View"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="Submit Justification">
+                                <img src="./myle.png" alt="Employee Leave Request Interface"
+                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
+                                    title="My Leave Requests">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="project-card box-hover-effect grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <span
+                            class="text-xs font-semibold text-green-500 uppercase tracking-wider mb-2 block">Consumer/Entertainment
+                            App</span>
+                        <h4 class="text-2xl font-bold text-indigo-800 mb-1">TMDB Movie and TV Shows Explorer</h4>
+                        <p class="text-sm font-medium text-gray-500 mb-4">Tech Stack: React, TMDB API, Secure User
+                            Authentication, Local Storage, Role Permission Manager</p>
+
+                        <p class="text-gray-700 mb-4 text-base">A media browsing application built with React,
+                            demonstrating proficiency in integrating external REST APIs, managing global state, and
+                            persistent user data.</p>
+
+                        <ul class="list-disc list-outside text-gray-600 space-y-2 ml-4 text-sm">
+                            <li class="pl-2">Implemented robust state management to handle user authentication
+                                (login/logout) and restrict content access (e.g., rating).</li>
+                            <li class="pl-2">Utilized Local Storage to maintain a private, persistent favorites list for
+                                each logged-in user, improving user retention and experience.</li>
+                            <li class="pl-2">Designed a clean, mobile-first responsive layout for seamless viewing
+                                across all devices.</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-1 border-l border-gray-100 lg:pl-6 pt-4 lg:pt-0">
+                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Key Screens Overview:</h5>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="./logg.png" alt="Login/Authentication Screen"
+                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
+                            <img src="./movie.png" alt="Movie Listing Page"
+                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
+                            <img src="./det.png" alt="Movie Detail Page"
+                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
+                            <img src="./fav.png" alt="User Favorites List"
+                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-gray-200">
+                    <h5 class="text-xl font-bold text-gray-800 mb-4">Other Notable Project:</h5>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-gray-400 box-hover-effect">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">E-Commerce Store With Admin Dashboard &
+                            Payment Gateway</h4>
+                        <p class="text-gray-600">A fully functional e-commerce application built with React, Firebase,
+                            Stripe Payment Gateway, and Tailwind CSS, offering a seamless shopping and admin experience.
+
+                            Key Features
+
+
+
+
+
+                            Product Catalog & Search: Dynamic product listing with filtering, sorting, and category-wise
+                            browsing.
+
+
+
+                            Cart & Checkout System: Smooth add-to-cart, quantity update, real-time cart total, and
+                            secure Stripe checkout integration.
+
+
+
+                            Order Tracking: Users can track order status (Processing → Shipped → Delivered).
+
+
+
+                            Admin Dashboard:
+
+
+
+
+
+                            Add/Edit/Delete products
+
+
+
+                            Manage orders and inventory
+
+
+
+                            Sales analytics and performance charts
+
+
+
+                            User Authentication: Email/password and Google login using Firebase Auth.
+
+
+
+                            Responsive UI: Built with Tailwind CSS and optimized for mobile devices.
+
+
+
+                            Wishlist & Favorite Products: Users can bookmark items for later.</p><br/> <br/>
+
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Customer Relationship Management (CRM)
+                            Dashboard</h4>
+                        <p class="text-gray-600">A feature-rich, enterprise-grade CRM Dashboard designed to streamline
+                            customer and sales management workflows. Built with React, Tailwind CSS, and modern UI
+                            patterns, the platform enables teams to manage customer details, track leads, and visualize
+                            sales insights with ease. The interface includes dynamic charts, smooth animations, and a
+                            fully responsive layout optimized for both desktop and mobile use.
+
+                            Key Features
+
+                            Intuitive Dashboard: Displays key metrics like total customers, lead conversion, and monthly
+                            sales with beautiful charts.
+
+                            Customer Management: Add, edit, delete, and organize customers with advanced search,
+                            sorting, pagination, and filtering.
+
+                            Sales Pipeline (Kanban): Interactive drag-and-drop pipeline to move leads through stages
+                            such as Lead → Contacted → Proposal → Closed.
+
+                            Follow-Up Reminders: Timeline system to track interactions, schedule reminders, and
+                            highlight overdue tasks.
+
+                            Role-Based Access: Admin, Manager, and Executive roles with different permissions and views.
+
+                            Activity Logs: Tracks all user actions, customer updates, and sales movements for
+                            accountability.
+
+                            Modern UI: Elegant cards, responsive tables, animated modals, and a clean, professional
+                            dashboard aesthetic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-300 my-10" />
+
+        <section id="contact" class="py-12 animated-section">
+            <h2 class="text-3xl font-bold text-gray-800 section-heading">Get In Touch ✉️</h2>
+            <div
+                class="bg-indigo-600 text-white p-8 sm:p-12 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.01] hover:shadow-indigo-500/50">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold mb-2">Ready to Build Something Great?</h3>
+                        <p class="text-lg opacity-90">I'm currently open to new opportunities where I can apply my
+                            skills in React and Vue.js to create performant, user-centric web applications.</p>
+                    </div>
+
+                    <div class="space-y-6 md:text-right">
+                        <p class="text-xl font-medium flex items-center md:justify-end">
+                            <svg class="w-6 h-6 mr-3 md:mr-0 md:ml-3" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            <a href="mailto:farhansolanki111@gmail.com"
+                                class="hover:text-indigo-200 font-semibold transition">farhansolanki111@gmail.com</a>
+                        </p>
+                        <p class="text-xl font-medium flex items-center md:justify-end">
+                            <svg class="w-6 h-6 mr-3 md:mr-0 md:ml-3" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.741 4.451a1 1 0 01-.54 1.063L6 10.871l1.47 1.47c1.22-.505 2.222-1.076 3.09-1.848.745-.658 1.413-1.42 2.016-2.28.603-0.86.85-1.84 1.25-2.613l.741-4.451a1 1 0 01.986-.836H17a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V3z">
+                                </path>
+                            </svg>
+                            +91 9167356311
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex space-x-6 justify-center pt-8 border-t border-indigo-400 mt-8">
+                    <a href="https://github.com/FarhaanSolanki24" target="_blank"
+                        class="text-white hover:text-indigo-200 transition transform hover:scale-125"
+                        title="GitHub Profile">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10 0C4.477 0 0 4.484 0 10.017c0 4.417 2.865 8.163 6.837 9.48.499.092.682-.217.682-.483 0-.237-.008-.867-.013-1.795-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.107-1.464-1.107-1.464-.905-.62.068-.608.068-.608 1.002.07 1.531 1.029 1.531 1.029.89 1.53 2.341 1.085 2.91.829.091-.643.349-1.085.635-1.334-2.227-.253-4.566-1.114-4.566-4.943 0-1.091.39-1.984 1.029-2.682-.103-.254-.446-1.275.097-2.646 0 0 .84-.268 2.75 1.023A9.742 9.742 0 0110 5.48c.843.003 1.696.111 2.508.311 1.909-1.291 2.748-1.023 2.748-1.023.543 1.371.2 2.392.097 2.646.64.698 1.029 1.591 1.029 2.682 0 3.837-2.342 4.686-4.571 4.935.359.309.678.917.678 1.854 0 1.335-.012 2.415-.012 2.741 0 .269.18.577.687.485C17.135 18.17 20 14.423 20 10.017 20 4.484 15.523 0 10 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohd-farhaan-sadiq-solanki-" target="_blank"
+                        class="text-white hover:text-indigo-200 transition transform hover:scale-125"
+                        title="LinkedIn Profile">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.567-4 0v5.604h-3v-11h3v1.765c1.395-2.535 6-2.14 6 2.829v6.406z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 mt-12">
+                &copy; 2025 Mohd Farhaan Sadiq Solanki. Built with &hearts; and Tailwind CSS.
+            </p>
+        </section>
+
+    </main>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                if (window.innerWidth < 768) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile Menu Toggle Logic
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // --- Intersection Observer for Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+        });
+
+        document.querySelectorAll('.animated-section').forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+
+</html>
