@@ -8,6 +8,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            background: #f1f5f9;
+            cursor: pointer;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+        }
+
+        .image-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-label {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
         /* Base Styles */
         body {
             font-family: 'Inter', sans-serif;
@@ -348,49 +389,74 @@
                         <h5 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Key Application Screens 🖼️</h5>
 
                         <div class="mb-6">
-                            <h6 class="text-base font-semibold text-indigo-700 mb-3 uppercase tracking-wider">Admin/HR
-                                Dashboards (7 Screens)</h6>
-                            <div class="grid grid-cols-3 gap-3">
-                                <img src="./dash.png" alt="Admin Dashboard Snapshot"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Admin Dashboard">
-                                <img src="./emp.png" alt="Employee List View"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Employee List Management">
-                                <img src="./att.png" alt="Detailed Attendance View"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Daily Attendance Records">
-                                <img src="./leave.png" alt="Leave Request Management"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Leave Request Approvals">
-                                <img src="./just.png" alt="Attendance Justification Tracking"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Late/Absence Justification">
-                                <img src="./pay.png" alt="Payroll Automation Detail"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Payroll Run Details">
-                                <img src="./payy.png" alt="Payroll Automation Summary"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Payroll Automation Summary">
+                            <h6 class="text-base font-semibold text-indigo-700 mb-3 uppercase tracking-wider">
+                                Admin/HR Dashboards
+                            </h6>
+
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="image-card">
+                                    <img src="./dash.png">
+                                    <div class="image-overlay"><span class="image-label">Dashboard</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./emp.png">
+                                    <div class="image-overlay"><span class="image-label">Employee List</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./att.png">
+                                    <div class="image-overlay"><span class="image-label">Attendance</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./leave.png">
+                                    <div class="image-overlay"><span class="image-label">Leave Requests</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./just.png">
+                                    <div class="image-overlay"><span class="image-label">Justification</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./pay.png">
+                                    <div class="image-overlay"><span class="image-label">Payroll</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./payy.png">
+                                    <div class="image-overlay"><span class="image-label">Payroll Summary</span></div>
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                            <h6 class="text-base font-semibold text-indigo-700 mb-3 uppercase tracking-wider">Employee
-                                Portal (4 Screens)</h6>
-                            <div class="grid grid-cols-2 gap-3">
-                                <img src="./emppp.png" alt="Employee Personal Dashboard"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Employee Profile & Stats">
-                                <img src="./myatt.png" alt="Employee's Own Attendance Log"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="My Attendance Log">
-                                <img src="./myjustr.png" alt="Justification Submission View"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="Submit Justification">
-                                <img src="./myle.png" alt="Employee Leave Request Interface"
-                                    class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-105"
-                                    title="My Leave Requests">
+                            <h6 class="text-base font-semibold text-indigo-700 mt-8 mb-3 uppercase tracking-wider">
+                                Employee Portal
+                            </h6>
+
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="image-card">
+                                    <img src="./emppp.png">
+                                    <div class="image-overlay"><span class="image-label">Dashboard</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./myatt.png">
+                                    <div class="image-overlay"><span class="image-label">My Attendance</span></div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./myjustr.png">
+                                    <div class="image-overlay"><span class="image-label">Submit Justification</span>
+                                    </div>
+                                </div>
+
+                                <div class="image-card">
+                                    <img src="./myle.png">
+                                    <div class="image-overlay"><span class="image-label">Leave Requests</span></div>
+                                </div>
                             </div>
                         </div>
 
@@ -402,34 +468,66 @@
                         <span
                             class="text-xs font-semibold text-green-500 uppercase tracking-wider mb-2 block">Consumer/Entertainment
                             App</span>
-                        <h4 class="text-2xl font-bold text-indigo-800 mb-1">TMDB Movie and TV Shows Explorer</h4>
-                        <p class="text-sm font-medium text-gray-500 mb-4">Tech Stack: React, TMDB API, Secure User
+                        <h4 class="text-2xl font-bold text-indigo-800 mb-1">E-Commerce Website</h4>
+                        <p class="text-sm font-medium text-gray-500 mb-4">Tech Stack: React, Redux Toolkit, Tailwind
+                            CSS, FAKE STORE API, Secure User
                             Authentication, Local Storage, Role Permission Manager</p>
 
-                        <p class="text-gray-700 mb-4 text-base">A media browsing application built with React,
-                            demonstrating proficiency in integrating external REST APIs, managing global state, and
-                            persistent user data.</p>
+                        <p class="text-gray-700 mb-4 text-base">
+                            A full-featured E-Commerce web application built with React, focused on delivering a
+                            seamless and responsive online shopping experience. The project demonstrates strong frontend
+                            development skills, including component-based architecture, API integration, and efficient
+                            state management.
+                        </p>
 
                         <ul class="list-disc list-outside text-gray-600 space-y-2 ml-4 text-sm">
-                            <li class="pl-2">Implemented robust state management to handle user authentication
-                                (login/logout) and restrict content access (e.g., rating).</li>
-                            <li class="pl-2">Utilized Local Storage to maintain a private, persistent favorites list for
-                                each logged-in user, improving user retention and experience.</li>
-                            <li class="pl-2">Designed a clean, mobile-first responsive layout for seamless viewing
-                                across all devices.</li>
+                            <li class="pl-2">Implemented global state management using Redux Toolkit to handle user
+                                authentication, cart operations, and order workflows efficiently across the application.
+                            </li>
+                            <li class="pl-2">Integrated Fake Store API to dynamically fetch product data and built
+                                features like product listing, category filtering, search functionality, sorting, and
+                                pagination.</li>
+                            <li class="pl-2">Developed a complete cart system with quantity updates, item removal, and
+                                order placement, along with real-time order tracking and order history management.</li>
+                            <li class="pl-2">Created role-based access control with login/logout functionality, ensuring
+                                secure access for users and restricted features based on authentication state.</li>
+                            <li class="pl-2">Designed a modern, responsive UI using Tailwind CSS with mobile-first
+                                approach, optimized for performance and smooth user experience across devices.</li>
+                            <li class="pl-2">Structured the application using reusable React components and clean code
+                                practices to ensure scalability and easy maintenance.</li>
                         </ul>
                     </div>
                     <div class="lg:col-span-1 border-l border-gray-100 lg:pl-6 pt-4 lg:pt-0">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Key Screens Overview:</h5>
-                        <div class="grid grid-cols-2 gap-4">
-                            <img src="./logg.png" alt="Login/Authentication Screen"
-                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
-                            <img src="./movie.png" alt="Movie Listing Page"
-                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
-                            <img src="./det.png" alt="Movie Detail Page"
-                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
-                            <img src="./fav.png" alt="User Favorites List"
-                                class="w-full h-auto rounded-lg shadow-md border border-gray-100 transition-all hover:scale-[1.05]">
+                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Key Screens Overview</h5>
+
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="image-card"><img src="./log.png">
+                                <div class="image-overlay"><span class="image-label">Login</span></div>
+                            </div>
+                            <div class="image-card"><img src="./home.png">
+                                <div class="image-overlay"><span class="image-label">Home</span></div>
+                            </div>
+                            <div class="image-card"><img src="./prod.png">
+                                <div class="image-overlay"><span class="image-label">Products</span></div>
+                            </div>
+                            <div class="image-card"><img src="./prodd.png">
+                                <div class="image-overlay"><span class="image-label">Product Detail</span></div>
+                            </div>
+                            <div class="image-card"><img src="./cart.png">
+                                <div class="image-overlay"><span class="image-label">Cart</span></div>
+                            </div>
+                            <div class="image-card"><img src="./check.png">
+                                <div class="image-overlay"><span class="image-label">Checkout</span></div>
+                            </div>
+                            <div class="image-card"><img src="./order.png">
+                                <div class="image-overlay"><span class="image-label">Orders</span></div>
+                            </div>
+                            <div class="image-card"><img src="./myord.png">
+                                <div class="image-overlay"><span class="image-label">My Orders</span></div>
+                            </div>
+                            <div class="image-card"><img src="./orderdetail.png">
+                                <div class="image-overlay"><span class="image-label">Order Detail</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -441,54 +539,20 @@
                             Payment Gateway</h4>
                         <p class="text-gray-600">A fully functional e-commerce application built with React, Firebase,
                             Stripe Payment Gateway, and Tailwind CSS, offering a seamless shopping and admin experience.
-
                             Key Features
-
-
-
-
-
                             Product Catalog & Search: Dynamic product listing with filtering, sorting, and category-wise
                             browsing.
-
-
-
                             Cart & Checkout System: Smooth add-to-cart, quantity update, real-time cart total, and
                             secure Stripe checkout integration.
-
-
-
                             Order Tracking: Users can track order status (Processing → Shipped → Delivered).
 
-
-
                             Admin Dashboard:
-
-
-
-
-
                             Add/Edit/Delete products
-
-
-
                             Manage orders and inventory
-
-
-
                             Sales analytics and performance charts
-
-
-
                             User Authentication: Email/password and Google login using Firebase Auth.
-
-
-
                             Responsive UI: Built with Tailwind CSS and optimized for mobile devices.
-
-
-
-                            Wishlist & Favorite Products: Users can bookmark items for later.</p><br/> <br/>
+                            Wishlist & Favorite Products: Users can bookmark items for later.</p><br /> <br />
 
                         <h4 class="text-lg font-semibold text-gray-800 mb-2">Customer Relationship Management (CRM)
                             Dashboard</h4>
